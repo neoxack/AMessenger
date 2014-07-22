@@ -1,0 +1,24 @@
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\AMessanger.exe.config
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger.exe
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger.pdb
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\AMessanger.exe
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\AMessanger.pdb
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\Caliburn.Micro.dll
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\Caliburn.Micro.Platform.dll
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\System.Windows.Interactivity.dll
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\Caliburn.Micro.xml
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\Caliburn.Micro.Platform.xml
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\bin\Debug\System.Windows.Interactivity.xml
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\Views\ShellView.baml
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\Views\ShellView.g.cs
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\App.g.cs
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\GeneratedInternalTypeHelper.g.cs
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger_MarkupCompile.cache
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger_MarkupCompile.lref
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\App.baml
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger.g.resources
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessanger.Properties.Resources.resources
+c:\users\neoxa_000\documents\visual studio 2013\Projects\AMessanger\AMessanger\obj\Debug\AMessenger.csproj.GenerateResource.Cache
+C:\Users\neoxa_000\Documents\GitHub\AMessenger\AMessanger\bin\Debug\AMessanger.exe.config
+C:\Users\neoxa_000\Documents\GitHub\AMessenger\AMessanger\obj\Debug\AMessanger.exe
+C:\Users\neoxa_000\Documents\GitHub\AMessenger\AMessanger\obj\Debug\AMessanger.pdb
