@@ -19,14 +19,19 @@
 			</Grid.RowDefinitions>
 
 			<Grid Grid.Row="0">
-				<StackPanel Orientation="Horizontal"
-							HorizontalAlignment="Right">
-					<Button Content="_" 
-							Width="30"/>
-					<Button Content="☢"
-							Width="30"/>
-					<Button Content="x"
-							Width="30"/>
+				<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+					<Button Width="30"
+					        Background="White"
+					        BorderThickness="0"
+					        Content="_" />
+					<Button Width="30"
+					        Background="White"
+					        BorderThickness="0"
+					        Content="☢" />
+					<Button Width="30"
+					        Background="White"
+					        BorderThickness="0"
+					        Content="x" />
 				</StackPanel>
 			</Grid>
 			<Grid Grid.Row="1">
