@@ -9,32 +9,36 @@
         WindowStyle="None">
 
 	<Border Margin="10"
-	        Background="White"
-	        BorderBrush="DarkOrange"
-	        BorderThickness="0">
+			Background="#edf1f2"
+			BorderThickness="0"
+	        CornerRadius="12,12,8,8">
 		<Grid>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="30" />
+				<RowDefinition Height="50" />
 				<RowDefinition Height="*" />
 			</Grid.RowDefinitions>
 
-			<Grid Grid.Row="0">
+			<Border Grid.Row="0"
+				    Background="#1c2b36"
+				    CornerRadius="8,8,0,0">
 				<StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-					<Button Width="30"
-					        Background="White"
-					        BorderThickness="0"
-					        Content="_" />
-					<Button Width="30"
-					        Background="White"
-					        BorderThickness="0"
-					        Content="☢" />
-					<Button Width="30"
-					        Background="White"
-					        BorderThickness="0"
-					        Content="x" />
+					<!--
+						<Button Width="30"
+						Background="White"
+						BorderThickness="0"
+						Content="_" />
+						<Button Width="30"
+						Background="White"
+						BorderThickness="0"
+						Content="☢" />
+						<Button Width="30"
+						Background="White"
+						BorderThickness="0"
+						Content="x" />
+					-->
 				</StackPanel>
-			</Grid>
-			<Grid Grid.Row="1">
+			</Border>
+			<Grid Grid.Row="1" >
 				<TextBlock HorizontalAlignment="Center"
 				           VerticalAlignment="Center"
 				           FontSize="50"
@@ -46,7 +50,7 @@
 		<Border.Effect>
 			<DropShadowEffect BlurRadius="10"
 			                  Direction="270"
-			                  Opacity="0.5"
+			                  Opacity="0.2"
 			                  ShadowDepth="2"
 			                  Color="Black" />
 		</Border.Effect>
