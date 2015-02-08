@@ -1,30 +1,35 @@
 using System;
 using System.Collections.Generic;
+using System.Windows;
+using AMessanger.ShellWindow;
 using Caliburn.Micro;
 
-namespace AMessenger
+namespace AMessanger
 {
-	public class AppBootstrapper : BootstrapperBase
+	public sealed class AppBootstrapper : BootstrapperBase
 	{
-		SimpleContainer container;
+		SimpleContainer _container;
 
 		public AppBootstrapper()
 		{
-			StartRuntime();
+			//SplashScreen splashScreen = new SplashScreen("./Resources/splash.jpg");
+			//splashScreen.Show(true);
+
+			Initialize();
 		}
 
 		protected override void Configure()
 		{
-			container = new SimpleContainer();
+			_container = new SimpleContainer();
 
-			container.Singleton<IWindowManager, WindowManager>();
-			container.Singleton<IEventAggregator, EventAggregator>();
-			container.PerRequest<IShell, ShellViewModel>();
+			_container.Singleton<IWindowManager, WindowManager>();
+			_container.Singleton<IEventAggregator, EventAggregator>();
+			_container.PerRequest<ShellViewModel>();
 		}
 
 		protected override object GetInstance(Type service, string key)
 		{
-			var instance = container.GetInstance(service, key);
+			var instance = _container.GetInstance(service, key);
 			if (instance != null)
 				return instance;
 
@@ -33,17 +38,17 @@ namespace AMessenger
 
 		protected override IEnumerable<object> GetAllInstances(Type service)
 		{
-			return container.GetAllInstances(service);
+			return _container.GetAllInstances(service);
 		}
 
 		protected override void BuildUp(object instance)
 		{
-			container.BuildUp(instance);
+			_container.BuildUp(instance);
 		}
 
 		protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
 		{
-			DisplayRootViewFor<IShell>();
+			DisplayRootViewFor<ShellViewModel>();
 		}
 	}
 }
