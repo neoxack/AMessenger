@@ -29,6 +29,26 @@ namespace AMessanger.ShellWindow
 			}
 		}
 
+		public bool Topmost
+		{
+			get
+			{
+				var window = GetView() as Window;
+				return window.Topmost;
+			}
+			set
+			{
+				var window = GetView() as Window;
+				window.Topmost = value;
+				NotifyOfPropertyChange(() => Topmost);
+			}
+		}
+
+		public void Pin()
+		{
+			Topmost = !Topmost;
+		}
+
 		public void MinimizeWindow()
 		{
 			WindowState = WindowState.Minimized;

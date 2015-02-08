@@ -19,6 +19,10 @@
 		                                       PathForMaximizedState="{StaticResource PathForMaximizeState}"
 		                                       PathForNormalState="{StaticResource PathForNormalState}" />
 
+		<converters:BoolToPathConverter x:Key="BoolToPathConverter"
+		                                PathForFalse="{StaticResource PathForTopmostFalse}"
+		                                PathForTrue="{StaticResource PathForTopmostTrue}" />
+
 	</Window.Resources>
 
 	<Grid Margin="12">
@@ -129,9 +133,15 @@
 						           Text="Settings" />
 					</Button>
 
+					<Button x:Name="Pin"
+					        Width="24"
+					        Margin="15,0,0,0"
+					        Style="{StaticResource WindowActionsButtonStyle}"
+							Content="{Binding Topmost, Converter={StaticResource BoolToPathConverter}}">
+					</Button>
+
 					<Button x:Name="MinimizeWindow"
 					        Width="30"
-					        Margin="15,0,0,0"
 					        Style="{StaticResource WindowActionsButtonStyle}">
 
 						<Path Width="13"
@@ -173,9 +183,6 @@
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
-			<Grid x:Name="ContactsGrid"
-			      Background="#D7DCDF"
-			      Column="0" />
 			<Grid x:Name="ChatGrid" Column="1">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="40" />
@@ -223,11 +230,12 @@
 						         Stretch="Fill" />
 					</StackPanel>
 					<Viewbox Grid.Column="1"
-					         Width="30"
+					         Width="8"
+					         Margin="0,0,12,0"
 					         HorizontalAlignment="Right">
-						<Canvas Width="24" Height="24">
-							<Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" Fill="#FF8795A0" />
-						</Canvas>
+						<Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+						      Fill="#FF8795A0"
+						      Stretch="Fill" />
 					</Viewbox>
 				</Grid>
 				<Rectangle Grid.Row="1" Fill="#33808080" />
@@ -244,12 +252,14 @@
 					</Grid.ColumnDefinitions>
 
 					<Viewbox Grid.Column="0"
-					         Width="30"
+					         Width="25"
 					         Margin="10,0,10,0"
 					         VerticalAlignment="Center">
-						<Canvas Width="24" Height="24">
-							<Path Data="M7.5,18A5.5,5.5 0 0,1 2,12.5A5.5,5.5 0 0,1 7.5,7H18A4,4 0 0,1 22,11A4,4 0 0,1 18,15H9.5A2.5,2.5 0 0,1 7,12.5A2.5,2.5 0 0,1 9.5,10H17V11.5H9.5A1,1 0 0,0 8.5,12.5A1,1 0 0,0 9.5,13.5H18A2.5,2.5 0 0,0 20.5,11A2.5,2.5 0 0,0 18,8.5H7.5A4,4 0 0,0 3.5,12.5A4,4 0 0,0 7.5,16.5H17V18H7.5Z" Fill="#FF8795A0" />
-						</Canvas>
+
+						<Path Data="M7.5,18A5.5,5.5 0 0,1 2,12.5A5.5,5.5 0 0,1 7.5,7H18A4,4 0 0,1 22,11A4,4 0 0,1 18,15H9.5A2.5,2.5 0 0,1 7,12.5A2.5,2.5 0 0,1 9.5,10H17V11.5H9.5A1,1 0 0,0 8.5,12.5A1,1 0 0,0 9.5,13.5H18A2.5,2.5 0 0,0 20.5,11A2.5,2.5 0 0,0 18,8.5H7.5A4,4 0 0,0 3.5,12.5A4,4 0 0,0 7.5,16.5H17V18H7.5Z"
+						      Fill="#FF8795A0"
+						      Stretch="Fill" />
+
 					</Viewbox>
 
 					<TextBox Grid.Column="1"
@@ -262,22 +272,29 @@
 					         Text="Write a message.." />
 
 					<Viewbox Grid.Column="2"
-					         Width="22"
+					         Width="18"
 					         Margin="10,0,0,0">
-						<Canvas Width="24" Height="24">
-							<Path Data="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z" Fill="#FF8795A0" />
-						</Canvas>
+
+						<Path Data="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
+						      Fill="#FF8795A0"
+						      Stretch="Fill" />
+
 					</Viewbox>
 
 					<Viewbox Grid.Column="3"
 					         Width="24"
 					         Margin="10,0,10,0">
-						<Canvas Width="24" Height="24">
-							<Path Data="M2,21L23,12L2,3V10L17,12L2,14V21Z" Fill="#576773" />
-						</Canvas>
+
+						<Path Data="M2,21L23,12L2,3V10L17,12L2,14V21Z"
+						      Fill="#576773"
+						      Stretch="Fill" />
+
 					</Viewbox>
 				</Grid>
 			</Grid>
+			<Grid x:Name="ContactsGrid"
+			      Grid.Column="0"
+			      Background="#D7DCDF" />
 		</Grid>
 
 
