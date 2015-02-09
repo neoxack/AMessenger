@@ -6,13 +6,16 @@ namespace AMessanger.ShellWindow
 
 	public class ShellViewModel : Screen
 	{
+
+		public ContactsAndChatsViewModel ContactsAndChatsViewModel { get; set; }
+
 		public ShellViewModel()
 		{
-			
-			Text = "Autumn – Some Like It Crunchy";
+			ContactsAndChatsViewModel = new ContactsAndChatsViewModel();
+			NotifyOfPropertyChange(() => ContactsAndChatsViewModel.Chats);
 		}
 
-		public string Text { get; set; }
+
 
 		public WindowState WindowState
 		{

@@ -67,6 +67,7 @@
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Converters\BoolToPathConverter.cs" />
     <Compile Include="Converters\WindowStateToPathConverter.cs" />
+    <Compile Include="ShellWindow\ContactsAndChatsViewModel.cs" />
     <Compile Include="ShellWindow\ShellViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
