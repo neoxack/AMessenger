@@ -12,7 +12,6 @@ namespace AMessanger.ShellWindow
 		public ShellViewModel()
 		{
 			ContactsAndChatsViewModel = new ContactsAndChatsViewModel();
-			NotifyOfPropertyChange(() => ContactsAndChatsViewModel.Chats);
 		}
 
 

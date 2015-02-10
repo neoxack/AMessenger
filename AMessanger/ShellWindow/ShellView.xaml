@@ -31,7 +31,7 @@
 			<RowDefinition Height="*" />
 		</Grid.RowDefinitions>
 		<Border Grid.Row="0"
-		        Background="#576773"
+		        Background="{StaticResource MainColor}"
 		        BorderThickness="0">
 
 			<Grid>
@@ -50,9 +50,9 @@
 					<Button Margin="10,0,0,0" Style="{StaticResource WindowActionsButtonStyle}">
 						<StackPanel Orientation="Horizontal">
 							<TextBlock VerticalAlignment="Center"
-							           FontSize="11"
+							           FontSize="12"
 							           FontWeight="600"
-							           Foreground="#D7DCDF"
+							           Foreground="{StaticResource MainForegroundColor}"
 							           Text="@neoCortex" />
 							<Ellipse Width="10"
 							         Height="10"
@@ -69,22 +69,22 @@
 							      Height="10"
 							      Margin="0,0,8,-28"
 							      Data="F1 M 21.5,23L 54.5,23C 56.2489,23 58,24.7511 58,26.5L 58,49.5C 58,51.2489 56.2489,53 54.5,53L 21.5,53C 19.7511,53 18,51.2489 18,49.5L 18,26.5C 18,24.7511 19.7511,23 21.5,23 Z M 22,47C 22,48.3117 22.6883,49 24,49L 52,49C 53.3117,49 54,48.3117 54,47L 54,29L 40.6563,42.6567C 39.4197,43.8933 37.4146,43.8933 36.178,42.6567L 22,29L 22,47 Z M 25,27L 36.7378,38.7381C 37.6653,39.6656 39.169,39.6656 40.0965,38.7381L 52,27L 25,27 Z "
-							      Fill="#D7DCDF"
+							      Fill="{StaticResource MainForegroundColor}"
 							      Stretch="Fill" />
 
 							<Grid Width="15"
 							      Height="15"
 							      Margin="6,0,0,0">
 
-								<Ellipse Fill="#D7DCDF"
+								<Ellipse Fill="{StaticResource MainForegroundColor}"
 								         Stretch="Fill"
-								         Stroke="#576773"
+								         Stroke="{StaticResource MainColor}"
 								         StrokeThickness="1" />
 								<TextBlock HorizontalAlignment="Center"
 								           VerticalAlignment="Center"
 								           FontSize="11"
 								           FontWeight="800"
-								           Foreground="#576773"
+								           Foreground="{StaticResource MainColor}"
 								           Text="5"
 								           TextAlignment="Center" />
 							</Grid>
@@ -111,7 +111,7 @@
 					         VerticalAlignment="Center"
 					         Background="Transparent"
 					         BorderThickness="0"
-					         CaretBrush="#D7DCDF"
+					         CaretBrush="{StaticResource MainForegroundColor}"
 					         FontSize="11"
 					         FontWeight="600"
 					         Foreground="#B6BABB"
@@ -127,9 +127,9 @@
 
 					<Button VerticalAlignment="Center" Style="{StaticResource WindowActionsButtonStyle}">
 
-						<TextBlock FontSize="11"
+						<TextBlock FontSize="12"
 						           FontWeight="600"
-						           Foreground="#D7DCDF"
+						           Foreground="{StaticResource MainForegroundColor}"
 						           Text="Settings" />
 					</Button>
 
@@ -148,7 +148,7 @@
 						      Height="2"
 						      Margin="0,8,0,0"
 						      Data="F1 M 19,38L 57,38L 57,44L 19,44L 19,38 Z "
-						      Fill="#D7DCDF"
+						      Fill="{StaticResource MainForegroundColor}"
 						      Stretch="Fill" />
 					</Button>
 
@@ -166,7 +166,7 @@
 						<Path Width="10"
 						      Height="10"
 						      Data="F1 M 26.9166,22.1667L 37.9999,33.25L 49.0832,22.1668L 53.8332,26.9168L 42.7499,38L 53.8332,49.0834L 49.0833,53.8334L 37.9999,42.75L 26.9166,53.8334L 22.1666,49.0833L 33.25,38L 22.1667,26.9167L 26.9166,22.1667 Z "
-						      Fill="#D7DCDF"
+						      Fill="{StaticResource MainForegroundColor}"
 						      Stretch="Fill" />
 					</Button>
 
@@ -180,10 +180,11 @@
 		<Grid Grid.Row="1">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="250" />
+				<ColumnDefinition Width="1" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
 
-			<Grid x:Name="ChatGrid" Column="1">
+			<Grid x:Name="ChatGrid" Column="2">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="40" />
 					<RowDefinition Height="1" />
@@ -221,7 +222,7 @@
 						           VerticalAlignment="Center"
 						           FontSize="14"
 						           FontWeight="600"
-						           Foreground="#576773"
+						           Foreground="{StaticResource MainColor}"
 						           Text="@SashaGrey" />
 						<Ellipse Width="10"
 						         Height="10"
@@ -286,30 +287,31 @@
 					         Margin="10,0,10,0">
 
 						<Path Data="M2,21L23,12L2,3V10L17,12L2,14V21Z"
-						      Fill="#576773"
+						      Fill="{StaticResource MainColor}"
 						      Stretch="Fill" />
 
 					</Viewbox>
 				</Grid>
 			</Grid>
-			<Grid Grid.Column="0" Background="#FF708391">
+			<Grid Grid.Column="0"
+				  Background="White">
 				<StackPanel Margin="10">
-					<Grid Margin="0,0,10,0">
+					<Grid Margin="15,0,10,0">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="Auto" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<TextBlock Grid.Column="0"
 						           FontSize="14"
-						           FontWeight="SemiBold"
-						           Foreground="#7FFFFFFF"
+						           FontWeight="Bold"
+						           Foreground="{StaticResource MainColor}"
 						           Text="CHATS" />
 
 						<Viewbox Grid.Column="1"
 						         Width="15"
 						         HorizontalAlignment="Right">
 							<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-							      Fill="#D7DCDF"
+							      Fill="{StaticResource MainColor}"
 							      Stretch="Fill" />
 						</Viewbox>
 					</Grid>
@@ -330,16 +332,14 @@
 									</Grid.ColumnDefinitions>
 
 									<TextBlock Grid.Column="0"
-									           FontSize="14"
-									           FontWeight="SemiBold"
-									           Foreground="#B2FFFFFF"
+									           FontSize="15"
+									           Foreground="{StaticResource MainColor}"
 									           Text="#" />
 
 									<TextBlock Grid.Column="1"
 									           Margin="5,0,0,0"
-									           FontSize="14"
-									           FontWeight="SemiBold"
-									           Foreground="#B2FFFFFF"
+									           FontSize="15"
+									           Foreground="{StaticResource MainColor}"
 									           Text="{Binding Name}" />
 
 								</Grid>
@@ -348,22 +348,26 @@
 
 					</ListBox>
 
-					<Grid Margin="0,10,10,0">
+					<Rectangle Fill="#FFD8D8D8" 
+							   Margin="10"
+							   Height="0.5"/>
+
+					<Grid Margin="15,0,10,0">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="Auto" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<TextBlock Grid.Column="0"
 						           FontSize="14"
-						           FontWeight="SemiBold"
-						           Foreground="#7FFFFFFF"
+						           FontWeight="Bold"
+						           Foreground="{StaticResource MainColor}"
 						           Text="CONTACTS" />
 
 						<Viewbox Grid.Column="1"
 						         Width="15"
 						         HorizontalAlignment="Right">
 							<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-							      Fill="#D7DCDF"
+							      Fill="{StaticResource MainColor}"
 							      Stretch="Fill" />
 						</Viewbox>
 					</Grid>
@@ -386,23 +390,22 @@
 									<Ellipse Grid.Column="0"
 									         Width="8"
 									         Height="8"
-											 Margin="0,0,0,3"
+									         Margin="0,0,0,3"
 									         VerticalAlignment="Bottom"
 									         Fill="#FF85EE1F"
 									         Stretch="Fill" />
 
 									<TextBlock Grid.Column="1"
 									           Margin="5,0,0,0"
-									           FontSize="14"
-									           FontWeight="SemiBold"
-									           Foreground="#B2FFFFFF"
+									           FontSize="15"
+									           Foreground="{StaticResource MainColor}"
 									           Text="{Binding Name}" />
 
 									<TextBlock Grid.Column="2"
 									           HorizontalAlignment="Right"
 									           VerticalAlignment="Bottom"
-									           FontSize="10"
-									           Foreground="#7FFFFFFF"
+									           FontSize="11"
+									           Foreground="{StaticResource MainColor}"
 									           Text="{Binding Time}"
 									           TextAlignment="Right" />
 								</Grid>
@@ -412,6 +415,9 @@
 					</ListBox>
 				</StackPanel>
 			</Grid>
+			<Rectangle Grid.Column="1"
+					   Fill="#FFD8D8D8" />
+
 		</Grid>
 
 

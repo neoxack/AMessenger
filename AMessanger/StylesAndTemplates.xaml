@@ -1,10 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-	<!--<FontFamily x:Key="Roboto">./Resources/#Roboto</FontFamily>-->
+	<FontFamily x:Key="Lato">./Resources/#Lato</FontFamily>
 
-	<Style TargetType="{x:Type TextBlock}">
-		<Setter Property="FontFamily" Value="Segoe UI" />
-	</Style>
+	<!--<Style TargetType="{x:Type TextBlock}">
+		<Setter Property="FontFamily" Value="{StaticResource Lato}" />
+	</Style>-->
+
+	<Brush x:Key="MainColor">#536573</Brush>
+	<Brush x:Key="MainForegroundColor">#dde0e2</Brush>
 
 	<Style x:Key="WindowActionsButtonStyle" TargetType="Button">
 		<Setter Property="Background" Value="Transparent" />
