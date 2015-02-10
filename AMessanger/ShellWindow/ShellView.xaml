@@ -302,7 +302,7 @@
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<TextBlock Grid.Column="0"
-						           FontSize="14"
+						           FontSize="11"
 						           FontWeight="Bold"
 						           Foreground="{StaticResource MainColor}"
 						           Text="CHATS" />
@@ -358,7 +358,7 @@
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<TextBlock Grid.Column="0"
-						           FontSize="14"
+						           FontSize="11"
 						           FontWeight="Bold"
 						           Foreground="{StaticResource MainColor}"
 						           Text="CONTACTS" />
