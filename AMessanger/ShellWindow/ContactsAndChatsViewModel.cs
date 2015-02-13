@@ -28,10 +28,22 @@ namespace AMessanger.ShellWindow
 			}
 		}
 
+		private uint _unreadMessagesCount;
+		public uint UnreadMessagesCount
+		{
+			get { return _unreadMessagesCount; }
+			set
+			{
+				_unreadMessagesCount = value;
+				NotifyOfPropertyChange(() => UnreadMessagesCount);
+			}
+		}
 
-		public ChatItem(string name)
+
+		public ChatItem(string name, uint unreadMessagesCount)
 		{
 			Name = name;
+			UnreadMessagesCount = unreadMessagesCount;
 		}
 	}
 
@@ -48,6 +60,17 @@ namespace AMessanger.ShellWindow
 			}
 		}
 
+		private uint _unreadMessagesCount;
+		public uint UnreadMessagesCount
+		{
+			get { return _unreadMessagesCount; }
+			set
+			{
+				_unreadMessagesCount = value;
+				NotifyOfPropertyChange(() => UnreadMessagesCount);
+			}
+		}
+
 		private string _time;
 		public string Time
 		{
@@ -59,10 +82,11 @@ namespace AMessanger.ShellWindow
 			}
 		}
 
-		public ContactItem(string name, string time)
+		public ContactItem(string name, string time, uint unreadMessagesCount)
 		{
 			Name = name;
 			Time = time;
+			UnreadMessagesCount = unreadMessagesCount;
 		}
 	}
 
@@ -76,17 +100,17 @@ namespace AMessanger.ShellWindow
 		{
 			Chats = new BindableCollection<ChatItem>();
 
-			Chats.Add(new ChatItem("api"));
-			Chats.Add(new ChatItem("general"));
-			Chats.Add(new ChatItem("marketing"));
+			Chats.Add(new ChatItem("api", 0));
+			Chats.Add(new ChatItem("general",1));
+			Chats.Add(new ChatItem("marketing",0));
 
 			Contacts = new BindableCollection<ContactItem>();
 
-			Contacts.Add(new ContactItem("SashaGrey", "8:16"));
-			Contacts.Add(new ContactItem("boris", "13:26"));
-			Contacts.Add(new ContactItem("EricCartman", "5.01.15"));
-			Contacts.Add(new ContactItem("jessica", "2.02.15"));
-			Contacts.Add(new ContactItem("putin", "12:18"));
+			Contacts.Add(new ContactItem("SashaGrey", "8:16", 0));
+			Contacts.Add(new ContactItem("boris", "13:26", 1));
+			Contacts.Add(new ContactItem("EricCartman", "5.01.15", 3));
+			Contacts.Add(new ContactItem("jessica", "2.02.15", 0));
+			Contacts.Add(new ContactItem("putin", "12:18", 0));
 		}
 	}
 }

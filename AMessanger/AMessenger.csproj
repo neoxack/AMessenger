@@ -13,6 +13,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,6 +67,7 @@
     </ApplicationDefinition>
     <Compile Include="AppBootstrapper.cs" />
     <Compile Include="Converters\BoolToPathConverter.cs" />
+    <Compile Include="Converters\CountToVisibilityConverter.cs" />
     <Compile Include="Converters\WindowStateToPathConverter.cs" />
     <Compile Include="ShellWindow\ContactsAndChatsViewModel.cs" />
     <Compile Include="ShellWindow\ShellView.xaml.cs">
@@ -117,10 +119,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\sativa.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\sativa.png" />
+    <Resource Include="Resources\user1.png" />
+    <Resource Include="Resources\user2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

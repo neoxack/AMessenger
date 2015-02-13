@@ -23,6 +23,8 @@
 		                                PathForFalse="{StaticResource PathForTopmostFalse}"
 		                                PathForTrue="{StaticResource PathForTopmostTrue}" />
 
+		<converters:CountToVisibilityConverter x:Key="CountToVisibilityConverter" />
+
 	</Window.Resources>
 
 	<Grid Margin="12">
@@ -104,7 +106,7 @@
 					      Height="14"
 					      Margin="7,0,0,0"
 					      Data="F1 M 42.5,22C 49.4036,22 55,27.5964 55,34.5C 55,41.4036 49.4036,47 42.5,47C 40.1356,47 37.9245,46.3435 36,45.2426L 26.9749,54.2678C 25.8033,55.4393 23.9038,55.4393 22.7322,54.2678C 21.5607,53.0962 21.5607,51.1967 22.7322,50.0251L 31.7971,40.961C 30.6565,39.0755 30,36.8644 30,34.5C 30,27.5964 35.5964,22 42.5,22 Z M 42.5,26C 37.8056,26 34,29.8056 34,34.5C 34,39.1944 37.8056,43 42.5,43C 47.1944,43 51,39.1944 51,34.5C 51,29.8056 47.1944,26 42.5,26 Z "
-					      Fill="#B6BABB"
+					      Fill="{StaticResource MainForegroundColor}"
 					      Stretch="Fill" />
 
 					<TextBox Margin="5,0,0,0"
@@ -114,14 +116,14 @@
 					         CaretBrush="{StaticResource MainForegroundColor}"
 					         FontSize="11"
 					         FontWeight="600"
-					         Foreground="#B6BABB"
+					         Foreground="{StaticResource MainForegroundColor}"
 					         GotFocus="TextBox_GotFocus"
 					         LostFocus="TextBox_LostFocus"
-					         Text="Search for people, messages" />
+					         Text="Search for people, messages.." />
 
 				</StackPanel>
 				<StackPanel Grid.Column="1"
-				            Margin="0,2,0,0"
+				            Margin="0,2,0,2"
 				            HorizontalAlignment="Right"
 				            Orientation="Horizontal">
 
@@ -192,6 +194,7 @@
 					<RowDefinition Height="1" />
 					<RowDefinition Height="auto" />
 				</Grid.RowDefinitions>
+
 				<Grid.Background>
 					<ImageBrush AlignmentY="Top"
 					            ImageSource="../Resources/sativa.png"
@@ -200,12 +203,85 @@
 					            Viewport="0,0,273,287"
 					            ViewportUnits="Absolute" />
 				</Grid.Background>
+				<ListBox x:Name="MessagingList"
+				         Grid.RowSpan="5"
+				         HorizontalContentAlignment="Stretch"
+				         Background="Transparent"
+				         BorderThickness="0"
+				         ItemContainerStyle="{StaticResource MessageListItemContainerStyle}"
+				         ItemsSource="{Binding Messages}"
+				         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+				         SelectionMode="Multiple"
+				         UseLayoutRounding="True">
+					<ListBox.ItemsPanel>
+						<ItemsPanelTemplate>
+							<VirtualizingStackPanel Margin="0,45,0,50" />
+						</ItemsPanelTemplate>
+					</ListBox.ItemsPanel>
+					<ListBox.ItemTemplate>
+						<DataTemplate>
+							<Border Margin="5,3,10,3"
+							        HorizontalAlignment="Left"
+							        Background="White"
+							        BorderBrush="#FFCBCBCB"
+							        BorderThickness="0,0,1,1">
+
+								<Grid Margin="5">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Image Grid.Column="0"
+									       Width="32"
+									       Height="32"
+									       VerticalAlignment="Top"
+									       Source="{Binding Image}" />
+									<Grid Grid.Column="1"
+									      Margin="10,0,0,0"
+									      VerticalAlignment="Top">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto" />
+											<RowDefinition Height="Auto" />
+										</Grid.RowDefinitions>
+										<StackPanel Grid.Row="0"
+										            Margin="0,-1,0,0"
+										            HorizontalAlignment="Left"
+										            VerticalAlignment="Top"
+										            Orientation="Horizontal">
+											<TextBlock FontSize="13"
+											           FontWeight="SemiBold"
+											           Foreground="{StaticResource MainColor}"
+											           Text="{Binding Name}" />
+											<TextBlock Margin="5,0,0,1"
+											           VerticalAlignment="Bottom"
+											           FontSize="10"
+											           FontWeight="Normal"
+											           Foreground="{StaticResource LightMainColor}"
+											           Text="{Binding Time}" />
+
+										</StackPanel>
+										<TextBlock Grid.Row="1"
+										           Margin="0,1,0,0"
+										           FontFamily="Tahoma"
+										           FontSize="12"
+										           Foreground="Black"
+										           RenderOptions.ClearTypeHint="Enabled"
+										           Text="{Binding Content}"
+										           TextOptions.TextFormattingMode="Display"
+										           TextWrapping="Wrap" />
+
+									</Grid>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ListBox.ItemTemplate>
+				</ListBox>
 				<Grid Grid.Row="0">
 					<Grid.Style>
 						<Style TargetType="Grid">
 							<Style.Triggers>
 								<Trigger Property="IsMouseOver" Value="False">
-									<Setter Property="Background" Value="#7FFFFFFF" />
+									<Setter Property="Background" Value="#B2FFFFFF" />
 								</Trigger>
 								<Trigger Property="IsMouseOver" Value="True">
 									<Setter Property="Background" Value="#E5FFFFFF" />
@@ -235,16 +311,16 @@
 					         Margin="0,0,12,0"
 					         HorizontalAlignment="Right">
 						<Path Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-						      Fill="#FF8795A0"
+						      Fill="{StaticResource LightMainColor}"
 						      Stretch="Fill" />
 					</Viewbox>
 				</Grid>
-				<Rectangle Grid.Row="1" Fill="#33808080" />
+				<Rectangle Grid.Row="1" Fill="{StaticResource BordersBrush}" />
 
-				<Rectangle Grid.Row="3" Fill="#33808080" />
+				<Rectangle Grid.Row="3" Fill="{StaticResource BordersBrush}" />
 				<Grid Grid.Row="4"
 				      Height="40"
-				      Background="#7FFFFFFF">
+				      Background="#B2FFFFFF">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="auto" />
 						<ColumnDefinition Width="*" />
@@ -252,16 +328,18 @@
 						<ColumnDefinition Width="auto" />
 					</Grid.ColumnDefinitions>
 
-					<Viewbox Grid.Column="0"
-					         Width="25"
-					         Margin="10,0,10,0"
-					         VerticalAlignment="Center">
+					<Button Grid.Column="0"
+					        Width="25"
+					        Margin="10,0,10,0"
+					        VerticalAlignment="Center"
+					        Style="{StaticResource WindowActionsButtonStyle}">
+						<Viewbox>
+							<Path Data="M7.5,18A5.5,5.5 0 0,1 2,12.5A5.5,5.5 0 0,1 7.5,7H18A4,4 0 0,1 22,11A4,4 0 0,1 18,15H9.5A2.5,2.5 0 0,1 7,12.5A2.5,2.5 0 0,1 9.5,10H17V11.5H9.5A1,1 0 0,0 8.5,12.5A1,1 0 0,0 9.5,13.5H18A2.5,2.5 0 0,0 20.5,11A2.5,2.5 0 0,0 18,8.5H7.5A4,4 0 0,0 3.5,12.5A4,4 0 0,0 7.5,16.5H17V18H7.5Z"
+							      Fill="{StaticResource LightMainColor}"
+							      Stretch="Fill" />
+						</Viewbox>
 
-						<Path Data="M7.5,18A5.5,5.5 0 0,1 2,12.5A5.5,5.5 0 0,1 7.5,7H18A4,4 0 0,1 22,11A4,4 0 0,1 18,15H9.5A2.5,2.5 0 0,1 7,12.5A2.5,2.5 0 0,1 9.5,10H17V11.5H9.5A1,1 0 0,0 8.5,12.5A1,1 0 0,0 9.5,13.5H18A2.5,2.5 0 0,0 20.5,11A2.5,2.5 0 0,0 18,8.5H7.5A4,4 0 0,0 3.5,12.5A4,4 0 0,0 7.5,16.5H17V18H7.5Z"
-						      Fill="#FF8795A0"
-						      Stretch="Fill" />
-
-					</Viewbox>
+					</Button>
 
 					<TextBox Grid.Column="1"
 					         VerticalAlignment="Center"
@@ -272,29 +350,30 @@
 					         Foreground="#B6BABB"
 					         Text="Write a message.." />
 
-					<Viewbox Grid.Column="2"
-					         Width="18"
-					         Margin="10,0,0,0">
+					<Button Grid.Column="2"
+					        Width="18"
+					        Margin="10,0,0,0"
+					        Style="{StaticResource WindowActionsButtonStyle}">
+						<Viewbox>
+							<Path Data="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
+							      Fill="{StaticResource LightMainColor}"
+							      Stretch="Fill" />
 
-						<Path Data="M20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12M22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2A10,10 0 0,1 22,12M10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5M17,9.5C17,10.3 16.3,11 15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23Z"
-						      Fill="#FF8795A0"
-						      Stretch="Fill" />
-
-					</Viewbox>
-
-					<Viewbox Grid.Column="3"
-					         Width="20"
-					         Margin="10,0,10,0">
-
-						<Path Data="M2,21L23,12L2,3V10L17,12L2,14V21Z"
-						      Fill="{StaticResource MainColor}"
-						      Stretch="Fill" />
-
-					</Viewbox>
+						</Viewbox>
+					</Button>
+					<Button Grid.Column="3"
+					        Width="19"
+					        Margin="10,0,10,0"
+					        Style="{StaticResource WindowActionsButtonStyle}">
+						<Viewbox>
+							<Path Data="M2,21L23,12L2,3V10L17,12L2,14V21Z"
+							      Fill="{StaticResource MainColor}"
+							      Stretch="Fill" />
+						</Viewbox>
+					</Button>
 				</Grid>
 			</Grid>
-			<Grid Grid.Column="0"
-				  Background="White">
+			<Grid Grid.Column="0" Background="White">
 				<StackPanel Margin="10">
 					<Grid Margin="15,0,10,0">
 						<Grid.ColumnDefinitions>
@@ -305,30 +384,37 @@
 						           FontSize="11"
 						           FontWeight="Bold"
 						           Foreground="{StaticResource MainColor}"
-						           Text="CHATS" />
+						           Text="GROUP CHATS" />
 
-						<Viewbox Grid.Column="1"
-						         Width="15"
-						         HorizontalAlignment="Right">
-							<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-							      Fill="{StaticResource MainColor}"
-							      Stretch="Fill" />
-						</Viewbox>
+						<Button Grid.Column="1"
+						        Width="14"
+						        HorizontalAlignment="Right"
+						        Style="{StaticResource WindowActionsButtonStyle}">
+							<Viewbox>
+								<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+								      Fill="{StaticResource MainColor}"
+								      Stretch="Fill" />
+							</Viewbox>
+						</Button>
+
 					</Grid>
 					<ListBox x:Name="ChatList"
-					         Margin="-1,0,0,0"
-					         HorizontalAlignment="Stretch"
+					         Margin="-1,2,0,0"
+					         HorizontalContentAlignment="Stretch"
 					         Background="Transparent"
 					         BorderThickness="0"
 					         DataContext="{Binding ContactsAndChatsViewModel}"
+					         ItemContainerStyle="{StaticResource ContactListItemContainerStyle}"
 					         ItemsSource="{Binding Chats}">
+
 						<ListBox.ItemTemplate>
 							<DataTemplate>
-								<Grid Width="220" Margin="0,2,0,0">
+								<Grid Margin="0,0,10,2" Background="Transparent">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="60" />
 									</Grid.ColumnDefinitions>
 
 									<TextBlock Grid.Column="0"
@@ -342,15 +428,30 @@
 									           Foreground="{StaticResource MainColor}"
 									           Text="{Binding Name}" />
 
+									<Grid Grid.Column="3"
+									      Height="15"
+									      HorizontalAlignment="Left"
+									      VerticalAlignment="Bottom"
+									      Visibility="{Binding UnreadMessagesCount,
+									                           Converter={StaticResource CountToVisibilityConverter}}">
+										<Border Background="{StaticResource MainForegroundColor}" CornerRadius="2" />
+										<TextBlock Margin="4,0,4,1"
+										           HorizontalAlignment="Center"
+										           VerticalAlignment="Center"
+										           FontSize="11"
+										           FontWeight="800"
+										           Foreground="{StaticResource MainColor}"
+										           Text="{Binding UnreadMessagesCount}"
+										           TextAlignment="Center" />
+									</Grid>
 								</Grid>
 							</DataTemplate>
 						</ListBox.ItemTemplate>
-
 					</ListBox>
 
-					<Rectangle Fill="#FFD8D8D8" 
-							   Margin="10"
-							   Height="0.5"/>
+					<Rectangle Height="1"
+					           Margin="10"
+					           Fill="#FFE8E8E8" />
 
 					<Grid Margin="15,0,10,0">
 						<Grid.ColumnDefinitions>
@@ -361,30 +462,37 @@
 						           FontSize="11"
 						           FontWeight="Bold"
 						           Foreground="{StaticResource MainColor}"
-						           Text="CONTACTS" />
+						           Text="ALL CONTACTS" />
 
-						<Viewbox Grid.Column="1"
-						         Width="15"
-						         HorizontalAlignment="Right">
-							<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
-							      Fill="{StaticResource MainColor}"
-							      Stretch="Fill" />
-						</Viewbox>
+						<Button Grid.Column="1"
+						        Width="14"
+						        HorizontalAlignment="Right"
+						        Style="{StaticResource WindowActionsButtonStyle}">
+							<Viewbox>
+								<Path Data="M17,13H13V17H11V13H7V11H11V7H13V11H17M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"
+								      Fill="{StaticResource MainColor}"
+								      Stretch="Fill" />
+							</Viewbox>
+						</Button>
 					</Grid>
 					<ListBox x:Name="ContactList"
-					         Margin="-1,0,0,0"
-					         HorizontalAlignment="Stretch"
+					         Margin="-1,2,0,0"
+					         HorizontalContentAlignment="Stretch"
 					         Background="Transparent"
 					         BorderThickness="0"
 					         DataContext="{Binding ContactsAndChatsViewModel}"
+					         ItemContainerStyle="{StaticResource ContactListItemContainerStyle}"
 					         ItemsSource="{Binding Contacts}">
+
 						<ListBox.ItemTemplate>
 							<DataTemplate>
-								<Grid Width="220" Margin="0,2,0,0">
+								<Grid Margin="0,0,10,2">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="45" />
 									</Grid.ColumnDefinitions>
 
 									<Ellipse Grid.Column="0"
@@ -401,11 +509,28 @@
 									           Foreground="{StaticResource MainColor}"
 									           Text="{Binding Name}" />
 
-									<TextBlock Grid.Column="2"
+									<Grid Grid.Column="3"
+									      Height="15"
+									      Margin="0,0,0,1"
+									      VerticalAlignment="Bottom"
+									      Visibility="{Binding UnreadMessagesCount,
+									                           Converter={StaticResource CountToVisibilityConverter}}">
+										<Border Background="{StaticResource MainForegroundColor}" CornerRadius="2" />
+										<TextBlock Margin="4,0,4,1"
+										           HorizontalAlignment="Center"
+										           VerticalAlignment="Center"
+										           FontSize="11"
+										           FontWeight="800"
+										           Foreground="{StaticResource MainColor}"
+										           Text="{Binding UnreadMessagesCount}"
+										           TextAlignment="Center" />
+									</Grid>
+
+									<TextBlock Grid.Column="4"
 									           HorizontalAlignment="Right"
 									           VerticalAlignment="Bottom"
 									           FontSize="11"
-									           Foreground="{StaticResource MainColor}"
+									           Foreground="#B6BABB"
 									           Text="{Binding Time}"
 									           TextAlignment="Right" />
 								</Grid>
@@ -415,8 +540,7 @@
 					</ListBox>
 				</StackPanel>
 			</Grid>
-			<Rectangle Grid.Column="1"
-					   Fill="#FFD8D8D8" />
+			<Rectangle Grid.Column="1" Fill="#FFD8D8D8" />
 
 		</Grid>
 
