@@ -20,20 +20,6 @@ namespace AMessanger.ShellWindow
 		{
 			this.DragMove();
 		}
-
-		private string _prevString = "";
-
-		private void TextBox_GotFocus(object sender, RoutedEventArgs e)
-		{
-			TextBox searchBox = (sender as TextBox);
-			_prevString = searchBox.Text;
-			searchBox.Text = "";
-		}
-
-		private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-		{
-			TextBox searchBox = (sender as TextBox);
-			searchBox.Text = _prevString;
-		}
+		
 	}
 }

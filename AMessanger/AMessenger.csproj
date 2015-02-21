@@ -78,6 +78,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TemplateSelectors\MessageItemTemplateSelector.cs" />
     <Page Include="ShellWindow\ShellView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -124,6 +125,12 @@
   <ItemGroup>
     <Resource Include="Resources\user1.png" />
     <Resource Include="Resources\user2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background_hd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\kiss.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
